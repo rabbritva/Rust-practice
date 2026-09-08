@@ -1,14 +1,16 @@
 use std::io::{self, Write};
 
 fn main() {
-    
+
     // first(); //01
     // second() //02
     // third(); //03
+    fourth(); //04
 }
 
 const MSG_DIGIT: &str = "Введите целое число";
 const MSG_IN: &str = "Failed to read line";
+const MSG_FLUSH: &str = "Flush ERROR";
 
 fn first() -> (){
     let mut name: String = String::new();
@@ -48,4 +50,22 @@ fn third() -> (){
     let b: i32 = input.trim().parse().expect(&MSG_DIGIT);
     input.clear();
     println!("a - b = {}", a-b);
+}
+
+fn fourth() -> (){
+    let mut input: String = String::new();
+    println!("Введите два числа: ");
+    print!("a = ");
+    io::stdout().flush().expect(&MSG_FLUSH);
+    io::stdin().read_line(&mut input).expect(MSG_IN);
+    let a: i32 = input.trim().parse().expect(MSG_DIGIT);
+    input.clear();
+
+    print!("b = ");
+    io::stdout().flush().expect(MSG_FLUSH);
+    io::stdin().read_line(&mut input).expect(MSG_IN);
+    let b: i32 = input.trim().parse().expect(MSG_DIGIT);
+    input.clear();
+
+    println!("a * b = {}", a*b);
 }
