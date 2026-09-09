@@ -2,9 +2,9 @@ use std::io::{self, Write};
 
 fn main() {
 
-    // first(); //01
-    // second() //02
-    // third(); //03
+    first(); //01
+    second(); //02
+    third(); //03
     fourth(); //04
 }
 
